@@ -8,7 +8,8 @@ export default Ember.Route.extend({
 
   actions: {
     saveTouch(x,y) {
-      this.store.createRecord('touch', {x: x, y: y}).save();
+      // ES2015 trick: {x: x, y: y} is the same as {x, y}
+      this.store.createRecord('touch', {x, y}).save();
     },
 
     deleteAll() {
