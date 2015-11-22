@@ -1,3 +1,7 @@
 .touch-canvas {
   background-color: #EEE;
 }
+
+canvas {
+  cursor:crosshair;
+}
