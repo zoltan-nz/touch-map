@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Index2</title>
+</head>
+<style type="text/css" media="screen">
+  canvas {cursor: crosshair;background-color: #eee;}
+</style>
+<body>
+<h1>Index 2</h1>
+
+<canvas id='myCanvas' width=500 height=500>
+</canvas>
+<script>
+document.getElementById('myCanvas').addEventListener('click', click);
+document.getElementById('myCanvas').addEventListener('mousemove', click);
+
+var startTime = new Date().getTime();
+console.log(startTime);
+var counter = 0;
+requestAnimationFrame(draw);
+
+function draw() {
+  counter++;
+  console.log(new Date().getTime(), counter);
+  if (counter<1000) {
+    requestAnimationFrame(draw);
+  }
+}
+
+function click(e) {
+  var x = e.offsetX;
+  var y = e.offsetY;
+  var canvas = document.getElementById('myCanvas');
+  var ctx = canvas.getContext('2d');
+
+  ctx.fillStyle = '#ff0000';
+  ctx.beginPath();
+  ctx.arc(x, y, 5, 0, 2 * Math.PI, true);
+  ctx.fill();
+}
+</script>
+
+</body>
+</html>
